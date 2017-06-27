@@ -14,7 +14,7 @@ class Bitfinex:
 
 	def construct_and_send(self, post_data, url_path):
 		try:
-			nonce = str(time.time() * 10000)
+			nonce = str(long(time.time() * 10000))
 			post_data['nonce'] = nonce
 			post_data['request'] = "/v1" + url_path
 			post_data_encoded =  base64.b64encode(json.dumps(post_data))
@@ -22,7 +22,7 @@ class Bitfinex:
 			headers = {'X-BFX-APIKEY' : self.api_key, 'X-BFX-PAYLOAD' : post_data_encoded, 'X-BFX-SIGNATURE' : sign}
 			req = requests.post(self.url + url_path, data=post_data, headers=headers,timeout=15).json()
 			return req
-		except Exception,e: #retry on error
+		except Exception, e: #retry on error
 			print e
 			time.sleep(10)
 			return self.construct_and_send(post_data, url_path)
