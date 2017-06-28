@@ -82,3 +82,10 @@ class Bitfinex:
 		except Exception, e:
 			print e
 			return self.order_book(symbol)
+		
+	def get_ticker(self, symbol):
+		try:
+			return requests.get(self.url + '/pubticker/' + symbol).json()
+		except Exception, e:
+			print e
+			return self.get_ticker(symbol)
