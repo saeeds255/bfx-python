@@ -3,6 +3,7 @@ import json
 import time
 import sys 
 
+def startit():
 BFX = Bitfinex('API_KEY', 'API_SECRET', 'https://api.bitfinex.com/v1')
 
 percent_profit = 5
@@ -46,7 +47,8 @@ if (market_price > zoneh):
   market_price = float(price['last_price'])
   myorder = BFX.sell('ETCUSD',q1,market_price,"market")
   print("Order ID: " + str(myorder['order_id']) + " / Price: " + str(myorder['price']) + " / Canceled: " + str(myorder['is_cancelled']) + " / Live: " + str(myorder['is_live']) + " / Order amount: " + str(myorder['original_amount']) + " \n")
-  sys.exit()
+  #sys.exit()
+  start_again()
   
 elif (market_price < sellsig):
   price = BFX.get_ticker('ETCUSD')
@@ -65,7 +67,8 @@ if (market_price < zonel):
   market_price = float(price['last_price'])
   myorder = BFX.buy('ETCUSD',q2exit,market_price,"market")
   print("Order ID: " + str(myorder['order_id']) + " / Price: " + str(myorder['price']) + " / Canceled: " + str(myorder['is_cancelled']) + " / Live: " + str(myorder['is_live']) + " / Order amount: " + str(myorder['original_amount']) + " \n")
-  sys.exit()
+  #sys.exit()
+  start_again()
   
 elif (market_price > buysig):
   price = BFX.get_ticker('ETCUSD')
@@ -86,7 +89,8 @@ if (market_price > zoneh):
   market_price = float(price['last_price'])
   myorder = BFX.sell('ETCUSD',q3exit,market_price,"market")
   print("Order ID: " + str(myorder['order_id']) + " / Price: " + str(myorder['price']) + " / Canceled: " + str(myorder['is_cancelled']) + " / Live: " + str(myorder['is_live']) + " / Order amount: " + str(myorder['original_amount']) + " \n")
-  sys.exit()
+  #sys.exit()
+  start_again()
   
 elif (market_price < sellsig):
   price = BFX.get_ticker('ETCUSD')
@@ -105,7 +109,8 @@ if (market_price < zonel):
   market_price = float(price['last_price'])
   myorder = BFX.buy('ETCUSD',q4exit,market_price,"market")
   print("Order ID: " + str(myorder['order_id']) + " / Price: " + str(myorder['price']) + " / Canceled: " + str(myorder['is_cancelled']) + " / Live: " + str(myorder['is_live']) + " / Order amount: " + str(myorder['original_amount']) + " \n")
-  sys.exit()
+  #sys.exit()
+  start_again()
   
 elif (market_price > buysig):
   price = BFX.get_ticker('ETCUSD')
@@ -125,7 +130,8 @@ if (market_price > zoneh):
   market_price = float(price['last_price'])
   myorder = BFX.sell('ETCUSD',q5exit,market_price,"market")
   print("Order ID: " + str(myorder['order_id']) + " / Price: " + str(myorder['price']) + " / Canceled: " + str(myorder['is_cancelled']) + " / Live: " + str(myorder['is_live']) + " / Order amount: " + str(myorder['original_amount']) + " \n")
-  sys.exit()
+  #sys.exit()
+  start_again()
   
 elif (market_price < sellsig):
   price = BFX.get_ticker('ETCUSD')
@@ -144,7 +150,8 @@ if (market_price < zonel):
   market_price = float(price['last_price'])
   myorder = BFX.buy('ETCUSD',q6exit,market_price,"market")
   print("Order ID: " + str(myorder['order_id']) + " / Price: " + str(myorder['price']) + " / Canceled: " + str(myorder['is_cancelled']) + " / Live: " + str(myorder['is_live']) + " / Order amount: " + str(myorder['original_amount']) + " /")
-  sys.exit()
+  #sys.exit()
+  start_again()
   
 elif (market_price > buysig):
   price = BFX.get_ticker('ETCUSD')
@@ -165,7 +172,8 @@ if (market_price > zoneh):
   market_price = float(price['last_price'])
   myorder = BFX.sell('ETCUSD',q7exit,market_price,"market")
   print("Order ID: " + str(myorder['order_id']) + " / Price: " + str(myorder['price']) + " / Canceled: " + str(myorder['is_cancelled']) + " / Live: " + str(myorder['is_live']) + " / Order amount: " + str(myorder['original_amount']) + " \n")
-  sys.exit()
+  #sys.exit()
+  start_again()
   
 elif (market_price < sellsig):
   price = BFX.get_ticker('ETCUSD')
@@ -184,7 +192,8 @@ if (market_price < zonel):
   market_price = float(price['last_price'])
   myorder = BFX.buy('ETCUSD',q8exit,market_price,"market")
   print("Order ID: " + str(myorder['order_id']) + " / Price: " + str(myorder['price']) + " / Canceled: " + str(myorder['is_cancelled']) + " / Live: " + str(myorder['is_live']) + " / Order amount: " + str(myorder['original_amount']) + " \n")
-  sys.exit()
+  #sys.exit()
+  start_again()
   
 elif (market_price > buysig):
   price = BFX.get_ticker('ETCUSD')
@@ -204,3 +213,6 @@ orders = BFX.open_order()
 #print order[0]['id']
 #resp = BFX.cancelOrder(orders[0]['id'])
 #print resp
+
+def start_again():
+  startit()
