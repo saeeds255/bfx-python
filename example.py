@@ -15,23 +15,24 @@ zoneh = float(buysig) * (1 + float(percent_profit)/100)
 sellsig = float(buysig - (zoneh - buysig)/3)
 zonel = sellsig - (zoneh - buysig)
 q1 = base_amount
-q2 = q1 + (base_amount * 1.4)
-q2exit = q2 - q1
-q3 = q2 + (base_amount * 1.4 * 1.4)
-q3exit = q3 - q2
-q4 = q3 + (base_amount * 1.4 * 1.4 * 1.4)
-q4exit = q4 - q3
-q5 = q4 + (base_amount * 1.4 * 1.4 * 1.4 * 1.4)
-q5exit = q5 - q4
-q6 = q5 + (base_amount * 1.4 * 1.4 * 1.4 * 1.4 * 1.4)
-q6exit = q6 - q5
-q7 = q6 + (base_amount * 1.4 * 1.4 * 1.4 * 1.4 * 1.4 * 1.4)
-q7exit = q7 - q6
-q8 = q7 + (base_amount * 1.4 * 1.4 * 1.4 * 1.4 * 1.4 * 1.4 * 1.4)
-q8exit = q8 - q7
-q9 = q8 + (base_amount * 1.4 * 1.4 * 1.4 * 1.4 * 1.4 * 1.4 * 1.4 * 1.4)
-q9exit = q9 - q8
+q2 = base_amount + (base_amount * 1.4)
+q2exit = (base_amount * 1.4)
+q3 = (base_amount * 1.4) + (base_amount * 1.4 * 1.4)
+q3exit = (base_amount * 1.4 * 1.4)
+q4 = (base_amount * 1.4 * 1.4) + (base_amount * 1.4 * 1.4 * 1.4)
+q4exit = (base_amount * 1.4 * 1.4 * 1.4)
+q5 = (base_amount * 1.4 * 1.4 * 1.4) + (base_amount * 1.4 * 1.4 * 1.4 * 1.4)
+q5exit = (base_amount * 1.4 * 1.4 * 1.4 * 1.4)
+q6 = (base_amount * 1.4 * 1.4 * 1.4 * 1.4) + (base_amount * 1.4 * 1.4 * 1.4 * 1.4 * 1.4)
+q6exit = (base_amount * 1.4 * 1.4 * 1.4 * 1.4 * 1.4)
+q7 = (base_amount * 1.4 * 1.4 * 1.4 * 1.4 * 1.4 * 1.4) + (base_amount * 1.4 * 1.4 * 1.4 * 1.4 * 1.4 * 1.4)
+q7exit = (base_amount * 1.4 * 1.4 * 1.4 * 1.4 * 1.4 * 1.4)
+q8 = (base_amount * 1.4 * 1.4 * 1.4 * 1.4 * 1.4 * 1.4) + (base_amount * 1.4 * 1.4 * 1.4 * 1.4 * 1.4 * 1.4 * 1.4)
+q8exit = (base_amount * 1.4 * 1.4 * 1.4 * 1.4 * 1.4 * 1.4 * 1.4)
+q9 = (base_amount * 1.4 * 1.4 * 1.4 * 1.4 * 1.4 * 1.4 * 1.4) + (base_amount * 1.4 * 1.4 * 1.4 * 1.4 * 1.4 * 1.4 * 1.4 * 1.4)
+q9exit = (base_amount * 1.4 * 1.4 * 1.4 * 1.4 * 1.4 * 1.4 * 1.4 * 1.4)
 
+time.sleep(1)
 myorder = BFX.buy('ETCUSD',q1,buysig,"market")
 print("Order ID: " + str(myorder['order_id']) + " / Price: " + str(myorder['price']) + " / Canceled: " + str(myorder['is_cancelled']) + " / Live: " + str(myorder['is_live']) + " / Order amount: " + str(myorder['original_amount']) + " \n")
 time.sleep(1)
@@ -201,6 +202,8 @@ elif (market_price > buysig):
   myorder = BFX.buy('ETCUSD',q9,market_price,"market")
   print("Order ID: " + str(myorder['order_id']) + " / Price: " + str(myorder['price']) + " / Canceled: " + str(myorder['is_cancelled']) + " / Live: " + str(myorder['is_live']) + " / Order amount: " + str(myorder['original_amount']) + " \n")
   time.sleep(1)
+  myorder = BFX.sell('ETCUSD',q9exit,market_price,"market")
+  start_again()
   
   #---------------------------------------------------------------------
   
@@ -216,3 +219,5 @@ orders = BFX.open_order()
 
 def start_again():
   startit()
+  
+startit()
