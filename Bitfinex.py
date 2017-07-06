@@ -75,6 +75,11 @@ class Bitfinex:
 		post_data = {}
 		url_path = '/balances'
 		return self.construct_and_send(post_data,url_path)
+	
+	def positions(self):
+		post_data = {}
+		url_path = '/positions'
+		return self.construct_and_send(post_data,url_path)
 
 	def order_book(self, symbol):
 		try:
