@@ -3,7 +3,7 @@ import json
 import time
 import sys
 
-BFX = Bitfinex('l48MCkTbzDkTAvDWC2u0OJ8BFwimI66rXn7S2OSE3Wy', 'GMudB4xN3zpcHR4tgvTUjrSNz8AyoDe3c63CKWir3di', 'https://api.bitfinex.com/v1')
+BFX = Bitfinex('API_KEY', 'API_SECRET', 'https://api.bitfinex.com/v1')
 
 def startit():
         slprice = 2365.5
