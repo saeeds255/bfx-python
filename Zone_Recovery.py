@@ -38,7 +38,7 @@ def startit():
 
         time.sleep(1)
         myorder = BFX.buy(coin,q1,buysig,"market")
-        print("Order ID: " + str(myorder['order_id']) + " / Price: " + str(myorder['price']) + " / Direction: " + str(myorder['side']) + " / Order amount: " + str(myorder['original_amount']) + " \n")
+        print("Order ID: " + str(myorder['order_id']) + " / Price: " + str(myorder['price']) + " / Direction: " + str(myorder['side']) + " / Order amount: " + str(myorder['original_amount']))
         time.sleep(2)
         market_price = float(price['last_price'])
 
@@ -51,15 +51,15 @@ def startit():
                 price = BFX.get_ticker(coin)
                 market_price = float(price['last_price'])
                 myorder = BFX.sell(coin,q1,market_price,"market")
-                print("Order ID: " + str(myorder['order_id']) + " / Price: " + str(myorder['price']) + " / Canceled: " + str(myorder['is_cancelled']) + " / Live: " + str(myorder['is_live']) + " / Order amount: " + str(myorder['original_amount']) + " \n")
+                print("Order ID: " + str(myorder['order_id']) + " / Price: " + str(myorder['price']) + " / Direction: " + str(myorder['side']) + " / Order amount: " + str(myorder['original_amount']))
                 #sys.exit()
                 start_again()
 
-        elif (market_price < sellsig):
+        else:
                 price = BFX.get_ticker(coin)
                 market_price = float(price['last_price'])
                 myorder = BFX.sell(coin,q2,market_price,"market")
-                print("Order ID: " + str(myorder['order_id']) + " / Price: " + str(myorder['price']) + " / Canceled: " + str(myorder['is_cancelled']) + " / Live: " + str(myorder['is_live']) + " / Order amount: " + str(myorder['original_amount']) + " \n")
+                print("Order ID: " + str(myorder['order_id']) + " / Price: " + str(myorder['price']) + " / Direction: " + str(myorder['side']) + " / Order amount: " + str(myorder['original_amount']))
                 time.sleep(1)
 
         while (market_price > zonel and market_price < buysig):
@@ -75,31 +75,11 @@ def startit():
                 #sys.exit()
                 start_again()
 
-        elif (market_price < sellsig):
-                price = BFX.get_ticker(coin)
-                market_price = float(price['last_price'])
-                myorder = BFX.sell(coin,q2,market_price,"market")
-                print("Order ID: " + str(myorder['order_id']) + " / Price: " + str(myorder['price']) + " / Canceled: " + str(myorder['is_cancelled']) + " / Live: " + str(myorder['is_live']) + " / Order amount: " + str(myorder['original_amount']) + " \n")
-                time.sleep(1)
-
-        while (market_price > zonel and market_price < buysig):
-                time.sleep(2)
-                price = BFX.get_ticker(coin)
-                market_price = float(price['last_price'])
-
-        if (market_price < zonel):
-                price = BFX.get_ticker(coin)
-                market_price = float(price['last_price'])
-                myorder = BFX.buy(coin,q2exit,market_price,"market")
-                print("Order ID: " + str(myorder['order_id']) + " / Price: " + str(myorder['price']) + " / Canceled: " + str(myorder['is_cancelled']) + " / Live: " + str(myorder['is_live']) + " / Order amount: " + str(myorder['original_amount']) + " \n")
-                #sys.exit()
-                start_again()
-
-        elif (market_price > buysig):
+        else:
                 price = BFX.get_ticker(coin)
                 market_price = float(price['last_price'])
                 myorder = BFX.buy(coin,q3,market_price,"market")
-                print("Order ID: " + str(myorder['order_id']) + " / Price: " + str(myorder['price']) + " / Canceled: " + str(myorder['is_cancelled']) + " / Live: " + str(myorder['is_live']) + " / Order amount: " + str(myorder['original_amount']) + " \n")
+                print("Order ID: " + str(myorder['order_id']) + " / Price: " + str(myorder['price']) + " / Direction: " + str(myorder['side']) + " / Order amount: " + str(myorder['original_amount']))
                 time.sleep(1)
 
         #---------------------------------------------------------------------
@@ -113,15 +93,15 @@ def startit():
                 price = BFX.get_ticker(coin)
                 market_price = float(price['last_price'])
                 myorder = BFX.sell(coin,q3exit,market_price,"market")
-                print("Order ID: " + str(myorder['order_id']) + " / Price: " + str(myorder['price']) + " / Canceled: " + str(myorder['is_cancelled']) + " / Live: " + str(myorder['is_live']) + " / Order amount: " + str(myorder['original_amount']) + " \n")
+                print("Order ID: " + str(myorder['order_id']) + " / Price: " + str(myorder['price']) + " / Direction: " + str(myorder['side']) + " / Order amount: " + str(myorder['original_amount']))
                 #sys.exit()
                 start_again()
 
-        elif (market_price < sellsig):
+        else:
                 price = BFX.get_ticker(coin)
                 market_price = float(price['last_price'])
                 myorder = BFX.sell(coin,q4,market_price,"market")
-                print("Order ID: " + str(myorder['order_id']) + " / Price: " + str(myorder['price']) + " / Canceled: " + str(myorder['is_cancelled']) + " / Live: " + str(myorder['is_live']) + " / Order amount: " + str(myorder['original_amount']) + " \n")
+                print("Order ID: " + str(myorder['order_id']) + " / Price: " + str(myorder['price']) + " / Direction: " + str(myorder['side']) + " / Order amount: " + str(myorder['original_amount']))
                 time.sleep(1)
 
         while (market_price > zonel and market_price < buysig):
@@ -133,15 +113,15 @@ def startit():
                 price = BFX.get_ticker(coin)
                 market_price = float(price['last_price'])
                 myorder = BFX.buy(coin,q4exit,market_price,"market")
-                print("Order ID: " + str(myorder['order_id']) + " / Price: " + str(myorder['price']) + " / Canceled: " + str(myorder['is_cancelled']) + " / Live: " + str(myorder['is_live']) + " / Order amount: " + str(myorder['original_amount']) + " \n")
+                print("Order ID: " + str(myorder['order_id']) + " / Price: " + str(myorder['price']) + " / Direction: " + str(myorder['side']) + " / Order amount: " + str(myorder['original_amount']))
                 #sys.exit()
                 start_again()
 
-        elif (market_price > buysig):
+        else:
                 price = BFX.get_ticker(coin)
                 market_price = float(price['last_price'])
                 myorder = BFX.buy(coin,q5,market_price,"market")
-                print("Order ID: " + str(myorder['order_id']) + " / Price: " + str(myorder['price']) + " / Canceled: " + str(myorder['is_cancelled']) + " / Live: " + str(myorder['is_live']) + " / Order amount: " + str(myorder['original_amount']) + " \n")
+                print("Order ID: " + str(myorder['order_id']) + " / Price: " + str(myorder['price']) + " / Direction: " + str(myorder['side']) + " / Order amount: " + str(myorder['original_amount']))
                 time.sleep(1)
 
         #---------------------------------------------------------------------
@@ -155,15 +135,15 @@ def startit():
                 price = BFX.get_ticker(coin)
                 market_price = float(price['last_price'])
                 myorder = BFX.sell(coin,q5exit,market_price,"market")
-                print("Order ID: " + str(myorder['order_id']) + " / Price: " + str(myorder['price']) + " / Canceled: " + str(myorder['is_cancelled']) + " / Live: " + str(myorder['is_live']) + " / Order amount: " + str(myorder['original_amount']) + " \n")
+                print("Order ID: " + str(myorder['order_id']) + " / Price: " + str(myorder['price']) + " / Direction: " + str(myorder['side']) + " / Order amount: " + str(myorder['original_amount']))
                 #sys.exit()
                 start_again()
 
-        elif (market_price < sellsig):
+        else:
                 price = BFX.get_ticker(coin)
                 market_price = float(price['last_price'])
                 myorder = BFX.sell(coin,q6,market_price,"market")
-                print("Order ID: " + str(myorder['order_id']) + " / Price: " + str(myorder['price']) + " / Canceled: " + str(myorder['is_cancelled']) + " / Live: " + str(myorder['is_live']) + " / Order amount: " + str(myorder['original_amount']) + " \n")
+                print("Order ID: " + str(myorder['order_id']) + " / Price: " + str(myorder['price']) + " / Direction: " + str(myorder['side']) + " / Order amount: " + str(myorder['original_amount']))
                 time.sleep(1)
 
         while (market_price > zonel and market_price < buysig):
@@ -175,15 +155,15 @@ def startit():
                 price = BFX.get_ticker(coin)
                 market_price = float(price['last_price'])
                 myorder = BFX.buy(coin,q6exit,market_price,"market")
-                print("Order ID: " + str(myorder['order_id']) + " / Price: " + str(myorder['price']) + " / Canceled: " + str(myorder['is_cancelled']) + " / Live: " + str(myorder['is_live']) + " / Order amount: " + str(myorder['original_amount']) + " /")
+                print("Order ID: " + str(myorder['order_id']) + " / Price: " + str(myorder['price']) + " / Direction: " + str(myorder['side']) + " / Order amount: " + str(myorder['original_amount']))
                 #sys.exit()
                 start_again()
 
-        elif (market_price > buysig):
+        else:
                 price = BFX.get_ticker(coin)
                 market_price = float(price['last_price'])
                 myorder = BFX.buy(coin,q7,market_price,"market")
-                print("Order ID: " + str(myorder['order_id']) + " / Price: " + str(myorder['price']) + " / Canceled: " + str(myorder['is_cancelled']) + " / Live: " + str(myorder['is_live']) + " / Order amount: " + str(myorder['original_amount']) + " \n")
+                print("Order ID: " + str(myorder['order_id']) + " / Price: " + str(myorder['price']) + " / Direction: " + str(myorder['side']) + " / Order amount: " + str(myorder['original_amount']))
                 time.sleep(1)
 
         #---------------------------------------------------------------------
@@ -197,27 +177,29 @@ def startit():
                 price = BFX.get_ticker(coin)
                 market_price = float(price['last_price'])
                 myorder = BFX.sell(coin,q7exit,market_price,"market")
-                print("Order ID: " + str(myorder['order_id']) + " / Price: " + str(myorder['price']) + " / Canceled: " + str(myorder['is_cancelled']) + " / Live: " + str(myorder['is_live']) + " / Order amount: " + str(myorder['original_amount']) + " \n")
+                print("Order ID: " + str(myorder['order_id']) + " / Price: " + str(myorder['price']) + " / Direction: " + str(myorder['side']) + " / Order amount: " + str(myorder['original_amount']))
                 #sys.exit()
                 start_again()
 
-        elif (market_price < sellsig):
+        else:
                 price = BFX.get_ticker(coin)
                 market_price = float(price['last_price'])
                 myorder = BFX.sell(coin,q8,market_price,"market")
-                print("Order ID: " + str(myorder['order_id']) + " / Price: " + str(myorder['price']) + " / Canceled: " + str(myorder['is_cancelled']) + " / Live: " + str(myorder['is_live']) + " / Order amount: " + str(myorder['original_amount']) + " \n")
+                print("Order ID: " + str(myorder['order_id']) + " / Price: " + str(myorder['price']) + " / Direction: " + str(myorder['side']) + " / Order amount: " + str(myorder['original_amount']))
                 time.sleep(1)
-                position = BFX.positions()
-                posamount = float(position[0]['amount'])
-                if posamount > 0:
-                        myorder = BFX.sell(coin,posamount,market_price,"market")
-                    
-                elif posamount < 0:
-                        myorder = BFX.buy(coin,posamount,market_price,"market")
-
-                else:
-                        myorder = BFX.buy(coin,q8exit,market_price,"market")
+                myorder = BFX.buy(coin,q8exit,market_price,"market")
                 start_again()
+                #position = BFX.positions()
+                #posamount = float(position[0]['amount'])
+                #if posamount > 0:
+                #        myorder = BFX.sell(coin,posamount,market_price,"market")
+                    
+                #elif posamount < 0:
+                #        myorder = BFX.buy(coin,posamount,market_price,"market")
+
+                #else:
+                #        myorder = BFX.buy(coin,q8exit,market_price,"market")
+                #start_again()
 
 #       while (market_price > zonel and market_price < buysig):
 #               time.sleep(2)
