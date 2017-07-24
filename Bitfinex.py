@@ -45,6 +45,11 @@ class Bitfinex:
 		post_data = {'symbol' : symbol, 'amount' : str(amount), 'price' : str(price), 'exchange' : exchange, 'side' : 'buy', 'type' : type_}
 		url_path = '/order/new'
 		return self.construct_and_send(post_data, url_path)
+	
+	def buystop(self, symbol, amount, price, type_, exchange='bitfinex', ocoorder=True, buy_price_oco):
+		post_data = {'symbol' : symbol, 'amount' : str(amount), 'price' : str(price), 'exchange' : exchange, 'side' : 'buy', 'type' : type_, 'ocoorder' : ocoorder, 'buy_price_oco' : str(buy_price_oco)}
+		url_path = '/order/new'
+		return self.construct_and_send(post_data, url_path)
 
 	def sell(self, symbol, amount, price, type_, exchange='bitfinex'):
 		post_data = {'symbol' : symbol, 'amount' : str(amount), 'price' : str(price), 'exchange' : exchange, 'side' : 'sell', 'type' : type_}
