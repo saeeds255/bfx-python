@@ -1,0 +1,18 @@
+from Bitfinex import Bitfinex
+import json
+import time
+import sys
+
+BFX = Bitfinex('API_KEY', 'API_SECRET', 'https://api.bitfinex.com/v1')
+
+def startit():
+        target1 = 
+        sl1 =
+        side =
+        
+        target2 = 
+        sl2 =
+        side =
+        
+        price = BFX.get_ticker(coin)
+        market_price = float(price['last_price'])
